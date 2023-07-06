@@ -7,20 +7,28 @@ import { AuthProvider } from  './context/AuthContext'
 import Header from './components/Header'
 import Homepage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
+import NotePage from "./pages/NotePage"
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <AuthProvider>
-          <Header />
-            <PrivateRoute Component={Homepage} path='/' exact />
-              <Routes> 
-                <Route Component={LoginPage} path='/login' exact />
-              </Routes>
-        </AuthProvider>
-      </Router>
-    </div>
+      <div className="App">
+        <Router>
+          <AuthProvider>
+            <Header />
+            <div className='container dark'>
+              <div className='app'>
+
+              <PrivateRoute Component={Homepage} path='/' exact />
+                <Routes> 
+                  <Route Component={LoginPage} path='/login' exact />
+                  <Route path ='/notes-detail/:id' element={<NotePage />} />
+                </Routes>
+              </div>
+              </div>
+          </AuthProvider>
+        </Router>
+      </div>
+    
   );
 }
 

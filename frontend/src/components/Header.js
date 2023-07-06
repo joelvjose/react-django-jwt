@@ -11,7 +11,7 @@ const Header = () => {
           <Link to="/" className="navbar-brand" href="#">Home</Link>
           <div className='float-left'>
             <ul className="navbar-nav me-auto mb-2 mb-md-0">
-              {user && <li className="nav-item">Hello {user.username}</li>}
+
               {user ? <li className="nav-item"><Link onClick={logoutUser} className="nav-link" >Logout</Link></li> : <li className="nav-item"><Link to="/login" className="nav-link" >Login</Link></li>}
               {/* <li className="nav-item">
                 <Link to="/login" className="nav-link" >Login</Link>
